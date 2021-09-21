@@ -28,12 +28,6 @@ class MyPage extends StatelessWidget {
         title: const Text('Appbar icon menu'),
         centerTitle: true,
         elevation: 0,
-        leading: IconButton( // AppBar 왼쪽에 배치되는 버튼
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            print('hello');
-          },
-        ),
         actions: [ // AppBar 오른쪽에 배치되는 버튼들
           IconButton(
             icon: const Icon(Icons.shopping_cart),
@@ -48,6 +42,31 @@ class MyPage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      drawer: Drawer( // leading 위치에 생성됨
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: const CircleAvatar(
+                  backgroundImage: AssetImage('assets/a.jpg'),
+                  backgroundColor: Colors.white,
+                ),
+              accountEmail: Text('hypemova@gmail.com'),
+              accountName: Text('Sam'),
+              onDetailsPressed: () {
+                  print('onpress');
+              },
+              decoration: BoxDecoration(
+                color: Colors.red[200],
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40)
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
