@@ -37,7 +37,9 @@ class _DiceState extends State<Dice> {
                 ],
               ),
             ),
-            SizedBox(height: 60,),
+            SizedBox(
+              height: 60,
+            ),
             ButtonTheme(
                 minWidth: 100,
                 height: 60,
@@ -47,13 +49,26 @@ class _DiceState extends State<Dice> {
                       leftDice = Random().nextInt(6) + 1;
                       rightDice = Random().nextInt(6) + 1;
                     });
+                    showToast('Left dice: ($leftDice), Right Dice ($rightDice)');
                   },
                   color: Colors.orangeAccent,
-                  child: Icon(Icons.play_arrow, color: Colors.white, size: 50,),
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 50,
+                  ),
                 ))
           ],
         ),
       ),
     );
   }
+}
+
+void showToast(String message) {
+  Fluttertoast.showToast(
+      msg: message,
+      backgroundColor: Colors.white,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM);
 }
