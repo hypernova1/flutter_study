@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/dice.dart';
+import 'package:flutter_dart_game/dice.dart';
 
 void main() {
   runApp(MyApp());
